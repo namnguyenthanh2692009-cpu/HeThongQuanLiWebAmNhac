@@ -1,0 +1,100 @@
+package Model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Songs")
+public class Song {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+
+    private String artist;
+
+    private String genre;
+
+    private String imageUrl;
+
+    private String audioUrl;
+    
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+	public Song() {
+		super();
+	}
+
+	public Song(Long id, String title, String artist, String genre, String imageUrl, String audioUrl, User user) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.artist = artist;
+		this.genre = genre;
+		this.imageUrl = imageUrl;
+		this.audioUrl = audioUrl;
+		this.user = user;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getAudioUrl() {
+		return audioUrl;
+	}
+
+	public void setAudioUrl(String audioUrl) {
+		this.audioUrl = audioUrl;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+    
+    
+}
